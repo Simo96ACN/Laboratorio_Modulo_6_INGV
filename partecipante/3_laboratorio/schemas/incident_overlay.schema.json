@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ingv:workflow-lab:incident-overlay:1.0",
+  "title": "Incident Overlay v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "overlay_id",
+    "overlay_version",
+    "title",
+    "released_at",
+    "operations"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "incident_overlay"},
+    "overlay_id": {"type": "string", "minLength": 1},
+    "overlay_version": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "released_at": {"type": "string", "format": "date-time"},
+    "operations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["op", "dataset_id", "record"],
+        "properties": {
+          "op": {"enum": ["add_text_evidence", "add_approval_event"]},
+          "dataset_id": {"type": "string", "pattern": "^DS-[0-9]{2}$"},
+          "record": {"type": "object"}
+        }
+      }
+    }
+  }
+}

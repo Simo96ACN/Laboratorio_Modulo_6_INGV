@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ingv:workflow-lab:approval:1.0",
+  "title": "Run Approval v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "approval_id",
+    "run_id",
+    "actor",
+    "scope",
+    "decisions",
+    "reason",
+    "decided_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "run_approval"},
+    "approval_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "actor": {"type": "string", "minLength": 1},
+    "scope": {"const": "simulated_release_batch"},
+    "decisions": {
+      "type": "object",
+      "minProperties": 5,
+      "additionalProperties": {
+        "enum": ["APPROVE_PROPOSAL", "REJECT_PROPOSAL"]
+      }
+    },
+    "reason": {"type": "string", "minLength": 3},
+    "decided_at": {"type": "string", "format": "date-time"}
+  }
+}

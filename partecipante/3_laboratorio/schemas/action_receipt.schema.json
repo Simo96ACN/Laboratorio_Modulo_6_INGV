@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ingv:workflow-lab:action-receipt:1.0",
+  "title": "Simulated Action Receipt v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "run_id",
+    "dataset_id",
+    "action",
+    "idempotency_key",
+    "effect_mode",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "action_receipt"},
+    "run_id": {"type": "string", "minLength": 1},
+    "dataset_id": {"type": "string", "pattern": "^DS-[0-9]{2}$"},
+    "action": {"enum": ["SIMULATE_PUBLISH", "SIMULATE_PUBLISH_WITH_CONDITIONS"]},
+    "idempotency_key": {"type": "string", "minLength": 16},
+    "effect_mode": {"const": "SIMULATED_FILE_ONLY"},
+    "status": {"const": "NOT_SENT"},
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

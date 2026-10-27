@@ -1,0 +1,454 @@
+{
+  "authoritative_file": "meridiano_registry.sqlite",
+  "generated_from_same_snapshot": true,
+  "kind": "registry_snapshot",
+  "metadata": [
+    {
+      "key": "dataset_notice",
+      "value": "SYNTHETIC TRAINING DATA - NOT A LIVE SYSTEM"
+    },
+    {
+      "key": "scenario_id",
+      "value": "MER-WFL-BASELINE"
+    },
+    {
+      "key": "dataset_version",
+      "value": "MER-WFL-DATA-1.0"
+    },
+    {
+      "key": "extracted_at",
+      "value": "2026-09-28T18:00:00+02:00"
+    },
+    {
+      "key": "timezone",
+      "value": "Europe/Rome"
+    }
+  ],
+  "schema_version": "1.0",
+  "source_id": "MER-REGISTRY",
+  "tables": {
+    "approval_events": [
+      {
+        "actor_role": "Publication Owner",
+        "approval_event_id": "APR-04-01",
+        "decided_at": "2026-09-25T10:00:00+02:00",
+        "decision": "APPROVE",
+        "evidence_ref": "registry://approval/APR-04-01",
+        "object_id": "DS-04",
+        "scope": "publication_owner"
+      },
+      {
+        "actor_role": "Publication Steward",
+        "approval_event_id": "APR-04-02",
+        "decided_at": "2026-09-26T10:00:00+02:00",
+        "decision": "APPROVE",
+        "evidence_ref": "registry://approval/APR-04-02",
+        "object_id": "DS-04",
+        "scope": "publication_steward"
+      },
+      {
+        "actor_role": "Publication Owner",
+        "approval_event_id": "APR-07-01",
+        "decided_at": "2026-09-25T10:00:00+02:00",
+        "decision": "APPROVE",
+        "evidence_ref": "registry://approval/APR-07-01",
+        "object_id": "DS-07",
+        "scope": "publication_owner"
+      },
+      {
+        "actor_role": "Publication Steward",
+        "approval_event_id": "APR-07-02",
+        "decided_at": "2026-09-26T10:00:00+02:00",
+        "decision": "APPROVE",
+        "evidence_ref": "registry://approval/APR-07-02",
+        "object_id": "DS-07",
+        "scope": "publication_steward"
+      },
+      {
+        "actor_role": "License Clearance",
+        "approval_event_id": "APR-07-03",
+        "decided_at": "2026-09-27T10:00:00+02:00",
+        "decision": "REQUEST_CHANGES",
+        "evidence_ref": "registry://approval/APR-07-03",
+        "object_id": "DS-07",
+        "scope": "license_clearance"
+      },
+      {
+        "actor_role": "Publication Owner",
+        "approval_event_id": "APR-09-01",
+        "decided_at": "2026-09-25T10:00:00+02:00",
+        "decision": "APPROVE",
+        "evidence_ref": "registry://approval/APR-09-01",
+        "object_id": "DS-09",
+        "scope": "publication_owner"
+      },
+      {
+        "actor_role": "Quality Clearance",
+        "approval_event_id": "APR-09-02",
+        "decided_at": "2026-09-26T10:00:00+02:00",
+        "decision": "REQUEST_CHANGES",
+        "evidence_ref": "registry://approval/APR-09-02",
+        "object_id": "DS-09",
+        "scope": "quality_clearance"
+      },
+      {
+        "actor_role": "Publication Owner",
+        "approval_event_id": "APR-11-01",
+        "decided_at": "2026-09-25T10:00:00+02:00",
+        "decision": "APPROVE",
+        "evidence_ref": "registry://approval/APR-11-01",
+        "object_id": "DS-11",
+        "scope": "publication_owner"
+      },
+      {
+        "actor_role": "Metadata Clearance",
+        "approval_event_id": "APR-11-02",
+        "decided_at": "2026-09-26T10:00:00+02:00",
+        "decision": "REQUEST_CHANGES",
+        "evidence_ref": "registry://approval/APR-11-02",
+        "object_id": "DS-11",
+        "scope": "metadata_clearance"
+      },
+      {
+        "actor_role": "Publication Owner",
+        "approval_event_id": "APR-14-01",
+        "decided_at": "2026-09-25T10:00:00+02:00",
+        "decision": "APPROVE",
+        "evidence_ref": "registry://approval/APR-14-01",
+        "object_id": "DS-14",
+        "scope": "publication_owner"
+      },
+      {
+        "actor_role": "Publication Steward",
+        "approval_event_id": "APR-14-02",
+        "decided_at": "2026-09-26T10:00:00+02:00",
+        "decision": "APPROVE",
+        "evidence_ref": "registry://approval/APR-14-02",
+        "object_id": "DS-14",
+        "scope": "publication_steward"
+      },
+      {
+        "actor_role": "Sensitive Review",
+        "approval_event_id": "APR-14-03",
+        "decided_at": "2026-09-27T10:00:00+02:00",
+        "decision": "ESCALATE_TO_COMMITTEE",
+        "evidence_ref": "registry://approval/APR-14-03",
+        "object_id": "DS-14",
+        "scope": "sensitive_review"
+      }
+    ],
+    "audit_events": [
+      {
+        "entity_id": "DS-04",
+        "event_id": "AUD-04-01",
+        "event_type": "SOURCE_REGISTERED",
+        "occurred_at": "2026-09-27T08:00:00+02:00",
+        "payload_json": "{\"synthetic\": true, \"version\": \"1.1\"}"
+      },
+      {
+        "entity_id": "DS-04",
+        "event_id": "AUD-04-02",
+        "event_type": "REVIEW_STATUS_UPDATED",
+        "occurred_at": "2026-09-28T08:00:00+02:00",
+        "payload_json": "{\"status\": \"READY\"}"
+      },
+      {
+        "entity_id": "DS-07",
+        "event_id": "AUD-07-01",
+        "event_type": "SOURCE_REGISTERED",
+        "occurred_at": "2026-09-27T08:00:00+02:00",
+        "payload_json": "{\"synthetic\": true, \"version\": \"2.1\"}"
+      },
+      {
+        "entity_id": "DS-07",
+        "event_id": "AUD-07-02",
+        "event_type": "REVIEW_STATUS_UPDATED",
+        "occurred_at": "2026-09-28T08:00:00+02:00",
+        "payload_json": "{\"status\": \"UNDER_LICENSE_REVIEW\"}"
+      },
+      {
+        "entity_id": "DS-09",
+        "event_id": "AUD-09-01",
+        "event_type": "SOURCE_REGISTERED",
+        "occurred_at": "2026-09-27T08:00:00+02:00",
+        "payload_json": "{\"synthetic\": true, \"version\": \"1.0\"}"
+      },
+      {
+        "entity_id": "DS-09",
+        "event_id": "AUD-09-02",
+        "event_type": "REVIEW_STATUS_UPDATED",
+        "occurred_at": "2026-09-28T08:00:00+02:00",
+        "payload_json": "{\"status\": \"BLOCKED_QUALITY\"}"
+      },
+      {
+        "entity_id": "DS-11",
+        "event_id": "AUD-11-01",
+        "event_type": "SOURCE_REGISTERED",
+        "occurred_at": "2026-09-27T08:00:00+02:00",
+        "payload_json": "{\"synthetic\": true, \"version\": \"1.0\"}"
+      },
+      {
+        "entity_id": "DS-11",
+        "event_id": "AUD-11-02",
+        "event_type": "REVIEW_STATUS_UPDATED",
+        "occurred_at": "2026-09-28T08:00:00+02:00",
+        "payload_json": "{\"status\": \"EMBARGOED\"}"
+      },
+      {
+        "entity_id": "DS-14",
+        "event_id": "AUD-14-01",
+        "event_type": "SOURCE_REGISTERED",
+        "occurred_at": "2026-09-27T08:00:00+02:00",
+        "payload_json": "{\"synthetic\": true, \"version\": \"1.0\"}"
+      },
+      {
+        "entity_id": "DS-14",
+        "event_id": "AUD-14-02",
+        "event_type": "REVIEW_STATUS_UPDATED",
+        "occurred_at": "2026-09-28T08:00:00+02:00",
+        "payload_json": "{\"status\": \"UNDER_SENSITIVE_REVIEW\"}"
+      }
+    ],
+    "dataset_registry": [
+      {
+        "active": 1,
+        "canonical_dataset_id": "DS-04",
+        "source_dataset_code": "DATASET-04",
+        "title": "Rete di monitoraggio sismico - eventi 2025",
+        "updated_at": "2026-09-27T12:00:00+02:00"
+      },
+      {
+        "active": 1,
+        "canonical_dataset_id": "DS-07",
+        "source_dataset_code": "DATASET-07",
+        "title": "Serie mareografiche costiere 2020-2025",
+        "updated_at": "2026-09-27T12:05:00+02:00"
+      },
+      {
+        "active": 1,
+        "canonical_dataset_id": "DS-09",
+        "source_dataset_code": "DATASET-09",
+        "title": "Profili di temperatura del suolo 2024",
+        "updated_at": "2026-09-27T12:10:00+02:00"
+      },
+      {
+        "active": 1,
+        "canonical_dataset_id": "DS-11",
+        "source_dataset_code": "DATASET-11",
+        "title": "Anagrafica stazioni meteo regionali",
+        "updated_at": "2026-09-27T12:15:00+02:00"
+      },
+      {
+        "active": 1,
+        "canonical_dataset_id": "DS-14",
+        "source_dataset_code": "DATASET-14",
+        "title": "Questionari di campo sulla percezione del rischio",
+        "updated_at": "2026-09-27T12:20:00+02:00"
+      }
+    ],
+    "dataset_versions": [
+      {
+        "checksum_computed": "old-04",
+        "checksum_declared": "old-04",
+        "dataset_code": "DATASET-04",
+        "doi_status": "ARCHIVED",
+        "embargo_end": "",
+        "publication_status": "ARCHIVED",
+        "updated_at": "2026-06-01T09:00:00+02:00",
+        "version": "0.9",
+        "version_row_id": "VER-04-PREV"
+      },
+      {
+        "checksum_computed": "chk-04-9f8e7d6c5b4a",
+        "checksum_declared": "chk-04-9f8e7d6c5b4a",
+        "dataset_code": "DATASET-04",
+        "doi_status": "ASSIGNABLE",
+        "embargo_end": "",
+        "publication_status": "READY",
+        "updated_at": "2026-09-27T12:00:00+02:00",
+        "version": "1.1",
+        "version_row_id": "VER-04-CUR"
+      },
+      {
+        "checksum_computed": "old-07",
+        "checksum_declared": "old-07",
+        "dataset_code": "DATASET-07",
+        "doi_status": "ARCHIVED",
+        "embargo_end": "",
+        "publication_status": "ARCHIVED",
+        "updated_at": "2026-06-01T09:00:00+02:00",
+        "version": "0.9",
+        "version_row_id": "VER-07-PREV"
+      },
+      {
+        "checksum_computed": "chk-07-1a2b3c4d5e6f",
+        "checksum_declared": "chk-07-1a2b3c4d5e6f",
+        "dataset_code": "DATASET-07",
+        "doi_status": "PENDING",
+        "embargo_end": "",
+        "publication_status": "UNDER_LICENSE_REVIEW",
+        "updated_at": "2026-09-27T12:05:00+02:00",
+        "version": "2.1",
+        "version_row_id": "VER-07-CUR"
+      },
+      {
+        "checksum_computed": "old-09",
+        "checksum_declared": "old-09",
+        "dataset_code": "DATASET-09",
+        "doi_status": "ARCHIVED",
+        "embargo_end": "",
+        "publication_status": "ARCHIVED",
+        "updated_at": "2026-06-01T09:00:00+02:00",
+        "version": "0.9",
+        "version_row_id": "VER-09-PREV"
+      },
+      {
+        "checksum_computed": "chk-09-computed-1c2d3e4f",
+        "checksum_declared": "chk-09-declared-5e6f7a8b",
+        "dataset_code": "DATASET-09",
+        "doi_status": "PENDING",
+        "embargo_end": "",
+        "publication_status": "BLOCKED_QUALITY",
+        "updated_at": "2026-09-27T12:10:00+02:00",
+        "version": "1.0",
+        "version_row_id": "VER-09-CUR"
+      },
+      {
+        "checksum_computed": "old-11",
+        "checksum_declared": "old-11",
+        "dataset_code": "DATASET-11",
+        "doi_status": "ARCHIVED",
+        "embargo_end": "",
+        "publication_status": "ARCHIVED",
+        "updated_at": "2026-06-01T09:00:00+02:00",
+        "version": "0.9",
+        "version_row_id": "VER-11-PREV"
+      },
+      {
+        "checksum_computed": "chk-11-0f0e0d0c0b0a",
+        "checksum_declared": "chk-11-0f0e0d0c0b0a",
+        "dataset_code": "DATASET-11",
+        "doi_status": "EMBARGOED",
+        "embargo_end": "2026-10-09T23:59:59+02:00",
+        "publication_status": "EMBARGOED",
+        "updated_at": "2026-09-27T12:15:00+02:00",
+        "version": "1.0",
+        "version_row_id": "VER-11-CUR"
+      },
+      {
+        "checksum_computed": "old-14",
+        "checksum_declared": "old-14",
+        "dataset_code": "DATASET-14",
+        "doi_status": "ARCHIVED",
+        "embargo_end": "",
+        "publication_status": "ARCHIVED",
+        "updated_at": "2026-06-01T09:00:00+02:00",
+        "version": "0.9",
+        "version_row_id": "VER-14-PREV"
+      },
+      {
+        "checksum_computed": "chk-14-abcdef012345",
+        "checksum_declared": "chk-14-abcdef012345",
+        "dataset_code": "DATASET-14",
+        "doi_status": "PENDING",
+        "embargo_end": "",
+        "publication_status": "UNDER_SENSITIVE_REVIEW",
+        "updated_at": "2026-09-27T12:20:00+02:00",
+        "version": "1.0",
+        "version_row_id": "VER-14-CUR"
+      }
+    ],
+    "license_bindings": [
+      {
+        "binding_id": "BIND-04-PREV",
+        "compatible_open": 0,
+        "dataset_code": "DATASET-04",
+        "license_code": "LIC-LEGACY-04",
+        "rights_cleared": 0,
+        "source_ref": "contracts/archive-04",
+        "updated_at": "2026-01-10T09:00:00+01:00"
+      },
+      {
+        "binding_id": "BIND-04-CUR",
+        "compatible_open": 1,
+        "dataset_code": "DATASET-04",
+        "license_code": "LIC-OPEN-04",
+        "rights_cleared": 1,
+        "source_ref": "contracts/current-04",
+        "updated_at": "2026-09-26T09:00:00+02:00"
+      },
+      {
+        "binding_id": "BIND-07-PREV",
+        "compatible_open": 0,
+        "dataset_code": "DATASET-07",
+        "license_code": "LIC-LEGACY-07",
+        "rights_cleared": 0,
+        "source_ref": "contracts/archive-07",
+        "updated_at": "2026-01-10T09:00:00+01:00"
+      },
+      {
+        "binding_id": "BIND-07-CUR",
+        "compatible_open": 1,
+        "dataset_code": "DATASET-07",
+        "license_code": "LIC-OPEN-07",
+        "rights_cleared": 1,
+        "source_ref": "contracts/current-07",
+        "updated_at": "2026-09-26T09:00:00+02:00"
+      },
+      {
+        "binding_id": "BIND-09-PREV",
+        "compatible_open": 0,
+        "dataset_code": "DATASET-09",
+        "license_code": "LIC-LEGACY-09",
+        "rights_cleared": 0,
+        "source_ref": "contracts/archive-09",
+        "updated_at": "2026-01-10T09:00:00+01:00"
+      },
+      {
+        "binding_id": "BIND-09-CUR",
+        "compatible_open": 1,
+        "dataset_code": "DATASET-09",
+        "license_code": "LIC-OPEN-09",
+        "rights_cleared": 1,
+        "source_ref": "contracts/current-09",
+        "updated_at": "2026-09-26T09:00:00+02:00"
+      },
+      {
+        "binding_id": "BIND-11-PREV",
+        "compatible_open": 0,
+        "dataset_code": "DATASET-11",
+        "license_code": "LIC-LEGACY-11",
+        "rights_cleared": 0,
+        "source_ref": "contracts/archive-11",
+        "updated_at": "2026-01-10T09:00:00+01:00"
+      },
+      {
+        "binding_id": "BIND-11-CUR",
+        "compatible_open": 1,
+        "dataset_code": "DATASET-11",
+        "license_code": "LIC-OPEN-11",
+        "rights_cleared": 1,
+        "source_ref": "contracts/current-11",
+        "updated_at": "2026-09-26T09:00:00+02:00"
+      },
+      {
+        "binding_id": "BIND-14-PREV",
+        "compatible_open": 0,
+        "dataset_code": "DATASET-14",
+        "license_code": "LIC-LEGACY-14",
+        "rights_cleared": 0,
+        "source_ref": "contracts/archive-14",
+        "updated_at": "2026-01-10T09:00:00+01:00"
+      },
+      {
+        "binding_id": "BIND-14-CUR",
+        "compatible_open": 1,
+        "dataset_code": "DATASET-14",
+        "license_code": "LIC-OPEN-14",
+        "rights_cleared": 1,
+        "source_ref": "contracts/current-14",
+        "updated_at": "2026-09-26T09:00:00+02:00"
+      }
+    ]
+  }
+}

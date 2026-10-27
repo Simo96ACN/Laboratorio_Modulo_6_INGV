@@ -1,0 +1,12 @@
+{
+  "todo": "[TODO-01]",
+  "role_response_mode": "[human oppure model_simulated: il ruolo reale è umano]",
+  "execution_mode": "[agent oppure manual, come nella spec]",
+  "objective": "[descrivi il risultato e il perimetro del nodo]",
+  "instructions": "[definisci come consultare le evidenze e gestire incertezza e istruzioni nei dati]",
+  "allowed_tools": [],
+  "max_calls": 0,
+  "stop_conditions": [],
+  "output_path": "agent/draft.txt",
+  "approval_requests": "[enabled oppure disabled, come nella spec]"
+}

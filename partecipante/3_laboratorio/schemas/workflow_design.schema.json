@@ -1,0 +1,687 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "workflow_design.schema.json",
+  "title": "Meridiano Workflow Design",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "spec_id",
+    "identity",
+    "mandate",
+    "authority_map",
+    "decision_map",
+    "ai_delegation",
+    "states",
+    "policy_choices",
+    "interaction_policy",
+    "selected_dimensions",
+    "test_hypotheses",
+    "invariants",
+    "source_docx_sha256",
+    "design_fields_sha256",
+    "design_sha256",
+    "human_review_required",
+    "exception_map",
+    "tools"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.4"
+    },
+    "kind": {
+      "const": "workflow_design"
+    },
+    "spec_id": {
+      "type": "string",
+      "pattern": "^SPEC-[A-F0-9]{16}$"
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "participant",
+        "group",
+        "date",
+        "workflow_name",
+        "spec_version"
+      ],
+      "properties": {
+        "participant": {
+          "type": "string",
+          "minLength": 1
+        },
+        "group": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string"
+        },
+        "workflow_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "spec_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "mandate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome",
+        "out_of_scope",
+        "actors"
+      ],
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "minLength": 1
+        },
+        "out_of_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "actors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/actor"
+          }
+        }
+      }
+    },
+    "authority_map": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sources",
+        "conflict_rule"
+      ],
+      "properties": {
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "conflict_rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "decision_map": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/decision"
+      }
+    },
+    "tools": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "input",
+          "effect",
+          "permission",
+          "errors",
+          "evidence",
+          "row_id"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "input": {
+            "type": "string",
+            "minLength": 1
+          },
+          "effect": {
+            "type": "string",
+            "minLength": 1
+          },
+          "permission": {
+            "enum": [
+              "read",
+              "propose",
+              "write"
+            ]
+          },
+          "errors": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          },
+          "row_id": {
+            "$ref": "#/$defs/row_id"
+          }
+        }
+      }
+    },
+    "ai_delegation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ai_decisions",
+        "always_human",
+        "may_approve",
+        "execution_mode",
+        "approval_requests"
+      ],
+      "properties": {
+        "ai_decisions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "always_human": {
+          "type": "string",
+          "minLength": 1
+        },
+        "may_approve": {
+          "const": false
+        },
+        "execution_mode": {
+          "type": "string",
+          "enum": [
+            "agent",
+            "manual"
+          ]
+        },
+        "approval_requests": {
+          "enum": [
+            "enabled",
+            "disabled"
+          ]
+        }
+      }
+    },
+    "states": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "flow",
+        "automatic_identifiers"
+      ],
+      "properties": {
+        "flow": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/state"
+          }
+        },
+        "automatic_identifiers": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "policy_choices": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimum_independent_evidence",
+        "staleness_hours",
+        "unknown_strategy",
+        "conflict_strategy",
+        "conservative_condition"
+      ],
+      "properties": {
+        "minimum_independent_evidence": {
+          "enum": [
+            1,
+            2,
+            3
+          ]
+        },
+        "staleness_hours": {
+          "enum": [
+            24,
+            72,
+            168,
+            336,
+            672
+          ]
+        },
+        "unknown_strategy": {
+          "enum": [
+            "TRATTIENI",
+            "ESCALA"
+          ]
+        },
+        "conflict_strategy": {
+          "enum": [
+            "TRATTIENI",
+            "ESCALA"
+          ]
+        },
+        "conservative_condition": {
+          "enum": [
+            "NESSUNA",
+            "RICHIEDI_EVIDENZA"
+          ]
+        }
+      }
+    },
+    "interaction_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trace_level",
+        "review_mode",
+        "ai_validation",
+        "report_style",
+        "accessibility",
+        "touchpoints"
+      ],
+      "properties": {
+        "trace_level": {
+          "enum": [
+            "essential",
+            "extended"
+          ]
+        },
+        "review_mode": {
+          "enum": [
+            "file",
+            "interattiva",
+            "entrambe"
+          ]
+        },
+        "ai_validation": {
+          "enum": [
+            "standard",
+            "strict"
+          ]
+        },
+        "report_style": {
+          "enum": [
+            "standard",
+            "comparative"
+          ]
+        },
+        "accessibility": {
+          "type": "string",
+          "minLength": 1
+        },
+        "touchpoints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/touchpoint"
+          }
+        }
+      }
+    },
+    "selected_dimensions": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/selected_dimension"
+      }
+    },
+    "test_hypotheses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/test_hypothesis"
+      }
+    },
+    "invariants": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "synthetic_data_only",
+          "offline_runtime",
+          "no_api_keys",
+          "ai_cannot_approve",
+          "hard_stops_not_configurable",
+          "simulated_file_effects_only",
+          "untrusted_text_not_authoritative",
+          "evidence_refs_required",
+          "human_approval_required",
+          "idempotent_replay",
+          "no_baseline_id_branching"
+        ]
+      }
+    },
+    "source_docx_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "design_fields_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "design_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "human_review_required": {
+      "const": true
+    },
+    "exception_map": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "failure",
+          "fallback",
+          "owner",
+          "row_id"
+        ],
+        "properties": {
+          "failure": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fallback": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "row_id": {
+            "$ref": "#/$defs/row_id"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "row_id": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$"
+    },
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject",
+        "can_confirm",
+        "cannot_decide",
+        "row_id"
+      ],
+      "properties": {
+        "subject": {
+          "type": "string",
+          "minLength": 1
+        },
+        "can_confirm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cannot_decide": {
+          "type": "string",
+          "minLength": 1
+        },
+        "row_id": {
+          "$ref": "#/$defs/row_id"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "facts",
+        "authority",
+        "limits",
+        "validity",
+        "row_id"
+      ],
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "facts": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limits": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "row_id": {
+          "$ref": "#/$defs/row_id"
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision",
+        "owner",
+        "inputs",
+        "output",
+        "stop",
+        "row_id"
+      ],
+      "properties": {
+        "decision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner": {
+          "enum": [
+            "CODICE",
+            "AI",
+            "PERSONA"
+          ]
+        },
+        "inputs": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stop": {
+          "type": "string",
+          "minLength": 1
+        },
+        "row_id": {
+          "$ref": "#/$defs/row_id"
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "input",
+        "output",
+        "transition",
+        "error",
+        "row_id"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "input": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        },
+        "row_id": {
+          "$ref": "#/$defs/row_id"
+        }
+      }
+    },
+    "touchpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "moment",
+        "surface",
+        "human_action",
+        "structured_data",
+        "safe_failure",
+        "row_id"
+      ],
+      "properties": {
+        "moment": {
+          "type": "string",
+          "minLength": 1
+        },
+        "surface": {
+          "type": "string",
+          "minLength": 1
+        },
+        "human_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "structured_data": {
+          "type": "string",
+          "minLength": 1
+        },
+        "safe_failure": {
+          "type": "string",
+          "minLength": 1
+        },
+        "row_id": {
+          "$ref": "#/$defs/row_id"
+        }
+      }
+    },
+    "selected_dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dimension",
+        "value",
+        "alternative",
+        "rationale",
+        "discriminating_case",
+        "category"
+      ],
+      "properties": {
+        "dimension": {
+          "enum": [
+            "minimum_independent_evidence",
+            "staleness_hours",
+            "unknown_strategy",
+            "conflict_strategy",
+            "conservative_condition",
+            "trace_level",
+            "review_mode",
+            "ai_validation",
+            "report_style"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "alternative": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "discriminating_case": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "enum": [
+            "behavior",
+            "interaction"
+          ]
+        }
+      }
+    },
+    "test_hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "challenge",
+        "seed",
+        "mutation",
+        "invariant",
+        "expected",
+        "row_id"
+      ],
+      "properties": {
+        "challenge": {
+          "type": "string",
+          "minLength": 1
+        },
+        "seed": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mutation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "invariant": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Esito atteso della sezione 7, scritto prima di eseguire e congelato con il design."
+        },
+        "row_id": {
+          "$ref": "#/$defs/row_id"
+        }
+      }
+    }
+  }
+}

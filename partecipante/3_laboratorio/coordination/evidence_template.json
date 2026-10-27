@@ -1,0 +1,26 @@
+{
+  "run_id": "DA_COMPILARE",
+  "mode": "chat_real_model | coding_agent_real_model | recorded_model_run | synthetic_replay",
+  "interface": "DA_COMPILARE",
+  "model": "DA_COMPILARE_o_non_esposto",
+  "manager": {
+    "prediction": "",
+    "delegation_contracts": [],
+    "specialist_results": [],
+    "synthesis": "",
+    "control_owner": ""
+  },
+  "handoff": {
+    "incomplete_contract": {},
+    "observed_missing_context_response": "",
+    "corrected_contract": {},
+    "active_agent_before": "",
+    "active_agent_after": "",
+    "next_step_response": ""
+  },
+  "mcp_trace": "reports/mcp_trace.json",
+  "human_approval": "NOT_GRANTED",
+  "interpretation": "",
+  "elapsed_seconds": {},
+  "limits": ""
+}

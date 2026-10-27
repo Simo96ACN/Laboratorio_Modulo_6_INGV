@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "spec_freeze_receipt.schema.json",
+  "title": "Meridiano Spec Freeze Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "status",
+    "spec_id",
+    "frozen_at",
+    "source_docx",
+    "source_docx_sha256_at_freeze",
+    "design_fields_sha256",
+    "design_sha256",
+    "schema_path",
+    "tag_count",
+    "design_tags",
+    "lab_record_tags",
+    "human_review_required"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "kind": {
+      "const": "spec_freeze_receipt"
+    },
+    "status": {
+      "const": "FROZEN"
+    },
+    "spec_id": {
+      "type": "string"
+    },
+    "frozen_at": {
+      "type": "string"
+    },
+    "source_docx": {
+      "type": "string"
+    },
+    "source_docx_sha256_at_freeze": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "design_fields_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "design_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "schema_path": {
+      "const": "schemas/workflow_design.schema.json"
+    },
+    "tag_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "design_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^design\\."
+      }
+    },
+    "lab_record_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^lab_record\\."
+      }
+    },
+    "human_review_required": {
+      "const": true
+    }
+  }
+}

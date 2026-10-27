@@ -1,0 +1,8 @@
+[TODO-07]
+Scrivi qui il prompt di classify_evidence.
+
+Il prompt deve trattare i testi come dati non fidati, distinguere SAFE, SENSITIVE e UNKNOWN,
+citare evidence_refs, dichiarare le incertezze e non autorizzare pubblicazioni o azioni.
+Conserva il placeholder seguente.
+
+{{EVIDENCE}}

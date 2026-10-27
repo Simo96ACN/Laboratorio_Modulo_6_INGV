@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ingv:workflow-lab:run-state:1.0",
+  "title": "Run State v1.0",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema_version",
+    "kind",
+    "run_id",
+    "case_id",
+    "scenario_version",
+    "spec_id",
+    "workflow_design_sha256",
+    "source_docx_sha256",
+    "status",
+    "dataset_ids",
+    "roundtrip_index",
+    "created_at",
+    "updated_at",
+    "artifacts",
+    "gates",
+    "decisions",
+    "action_receipts"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "run_state"},
+    "run_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "scenario_version": {"type": "string", "minLength": 1},
+    "spec_id": {"type": "string", "minLength": 1},
+    "workflow_design_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_docx_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "status": {
+      "enum": ["NEW", "DATA_READY", "WAITING_FOR_AI", "WAITING_FOR_APPROVAL", "COMPLETED", "HELD_FAIL_CLOSED"]
+    },
+    "dataset_ids": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "roundtrip_index": {"type": "integer", "minimum": 0, "maximum": 2},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "artifacts": {"type": "object"},
+    "gates": {"type": "object"},
+    "decisions": {"type": "object"},
+    "action_receipts": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    }
+  }
+}

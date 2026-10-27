@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ingv:workflow-lab:decision-record:1.0",
+  "title": "Dataset Decision Record v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "dataset_id",
+    "proposal",
+    "gate_results",
+    "evidence_refs",
+    "hard_stop",
+    "rationale"
+  ],
+  "properties": {
+    "dataset_id": {
+      "type": "string",
+      "pattern": "^DS-[0-9]{2}$"
+    },
+    "proposal": {
+      "enum": [
+        "PUBBLICA",
+        "PUBBLICA_CON_CONDIZIONI",
+        "TRATTIENI",
+        "ESCALA"
+      ]
+    },
+    "gate_results": {
+      "type": "object"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "hard_stop": {
+      "type": "boolean"
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "approval_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scope",
+          "reason"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "scope": {
+            "enum": [
+              "publication_owner",
+              "publication_steward"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 10
+          }
+        }
+      }
+    }
+  }
+}

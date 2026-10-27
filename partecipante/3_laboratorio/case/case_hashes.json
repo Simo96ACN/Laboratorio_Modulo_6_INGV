@@ -1,0 +1,32 @@
+{
+  "case_id": "MER-WFL-BASELINE",
+  "files": {
+    "case_manifest.json": "20672c625f4ffc8c681c7a678d033c3902cd84bbd6b13507d5c63bb54d68325d",
+    "data_dictionary.md": "564ab89ba10d89f50fc1fb2571724beaef6280702b0ce07f769fe8dece5581a6",
+    "publication_policy.md": "cf9858ac6454270eeade42cee1438f24b5ae4856e8bd2f24288f99fddba61131",
+    "raw/registry/meridiano_registry.sqlite": "aa38c51d35788929c6bcfb7413b40c27fc446b194435778147dc29253ef7ef6b",
+    "raw/registry/meridiano_registry_readonly.json": "2fe3796dda1e08cf9f01fa14e47ded7a804e9c916c94176065f48dea779660a9",
+    "raw/structured/license_register.csv": "731c1cec5ac66339f80874cf3dd1a544294395e434470e8e9f95bfbc961ebdbf",
+    "raw/structured/metadata_catalog.csv": "16834458aed07f2f2c74ac87b4ad3949c08e93e0316955a48adc5cf9cfa791e4",
+    "raw/structured/quality_events.ndjson": "e40ea52b2b67f013a57f0a882ffd126a1d4a31e5117115869d67895a1c04d32c",
+    "raw/structured/release_calendar.ics": "4c472fa09dd0e9d76b8efb2441431d638d118bbb3876b064840af646b0b65158",
+    "raw/structured/service_tickets.csv": "6163b30eb6f3cf7f019c40b2df1f64237dba2367a843da03dd8d32b1d12bb880",
+    "raw/unstructured/01_ds-04_owner.eml": "d348aba79e9c7d508f18356c69bf4d26a96124265a0011dc31bf5d83822afc97",
+    "raw/unstructured/02_ds-04_ops.eml": "18f575f8e6aa383d8cefd4aca5da462eaed610f60b54bd6881c7c8b19eb1f7d8",
+    "raw/unstructured/03_ds-04_field.eml": "5d204d9b918ef8fbc495263ba48e94498eea500f093a7ea2317b972814429044",
+    "raw/unstructured/04_ds-07_owner.eml": "85d41f899111296d9d4c9ed0eabb4b8db07760306c977b4772e669ac79d6ed47",
+    "raw/unstructured/05_ds-07_tech.eml": "a2a24f3b4ebac146a6f013f52988cef1d6dd5d6d7e7d353da222f1254bc61547",
+    "raw/unstructured/06_ds-07_station.eml": "3e82dc895948de707a5d9165e92f6d1ad81ec303568fcd44791eeff50fe74c35",
+    "raw/unstructured/07_ds-09_quality.eml": "003c119ef8ad8092bb8daa21bdace1d609fe33b4d142b4caab965b715fd6a265",
+    "raw/unstructured/08_ds-09_lab.eml": "57b88b68b6fc2f2df99a8fec41188d61c5e376e06199cde713ab1a555077b2ea",
+    "raw/unstructured/09_ds-09_owner.eml": "ccbc2e405bba0b2a3771eb9fb754ef56bfbe863e6312900ca6417d908b4ef37a",
+    "raw/unstructured/10_ds-11_metadata.eml": "f49d3f4af855be7795d0e1cf700c611d753d53ece8bddb226d28c250794a2d03",
+    "raw/unstructured/11_ds-11_release.eml": "bef97d73010159417f6e5567a5d61150d2121ab5e739ba755cea5e13a35d28db",
+    "raw/unstructured/12_ds-11_station.eml": "2088fa05789c435035ed35d25161fac9396fdab19a42d17541d9e39c5f0445bf",
+    "raw/unstructured/13_ds-14_steward.eml": "3da3f3017618ac46ec83bcdd614dd989b8e3c73a633837353cf72f4095a7563f",
+    "raw/unstructured/14_ds-14_committee.eml": "ce415adefb656bcbdb091b1b320422de714e37393e4ca19f91fdf2a8cf39b1f2",
+    "raw/unstructured/15_ds-14_methods.eml": "712c52b7b16fe610fdbf3d39d44881830d0372d195c068f53c94801c9486bccb"
+  },
+  "kind": "case_hash_manifest",
+  "schema_version": "1.0"
+}

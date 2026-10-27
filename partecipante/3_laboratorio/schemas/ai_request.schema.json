@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ingv:workflow-lab:ai-request:1.0",
+  "title": "AI Request v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "request_id",
+    "run_id",
+    "case_id",
+    "scenario_version",
+    "node_id",
+    "dataset_ids",
+    "roundtrip_index",
+    "created_at",
+    "prompt_version",
+    "prompt_hash",
+    "payload_hash",
+    "prompt_text",
+    "payload",
+    "response_contract"
+  ],
+  "properties": {
+    "prompt_template": {"type": "string", "minLength": 1},
+    "prompt_snapshot_version": {"const": "1.0"},
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "ai_request"},
+    "request_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "scenario_version": {"type": "string", "minLength": 1},
+    "node_id": {"const": "classify_evidence"},
+    "dataset_ids": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^DS-[0-9]{2}$"}
+    },
+    "roundtrip_index": {"type": "integer", "minimum": 1, "maximum": 2},
+    "created_at": {"type": "string", "format": "date-time"},
+    "prompt_version": {"type": "string", "minLength": 1},
+    "prompt_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "payload_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "prompt_text": {"type": "string", "minLength": 1},
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_by_dataset"],
+      "properties": {
+        "evidence_by_dataset": {
+          "type": "object",
+          "minProperties": 5,
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["evidence_ref", "source_path", "text", "observed_at"],
+              "properties": {
+                "evidence_ref": {"type": "string", "minLength": 1},
+                "source_path": {"type": "string", "minLength": 1},
+                "text": {"type": "string", "minLength": 1},
+                "observed_at": {"type": "string", "format": "date-time"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "response_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["labels", "required_fields", "coverage"],
+      "properties": {
+        "labels": {
+          "type": "array",
+          "const": ["SAFE", "SENSITIVE", "UNKNOWN"]
+        },
+        "required_fields": {
+          "type": "array",
+          "const": ["dataset_id", "label", "evidence_refs", "rationale", "uncertainties"]
+        },
+        "coverage": {"const": "exactly_one_output_per_requested_dataset"}
+      }
+    }
+  }
+}

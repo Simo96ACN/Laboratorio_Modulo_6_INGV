@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ingv:workflow-lab:submission-manifest:1.0",
+  "title": "Submission Manifest v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "kind",
+    "submission_id",
+    "run_ids",
+    "spec_id",
+    "design_sha256",
+    "source_docx_sha256_at_freeze",
+    "source_docx_sha256_at_submit",
+    "artifacts",
+    "created_at",
+    "human_review_required"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "submission_manifest"},
+    "submission_id": {"type": "string", "minLength": 1},
+    "spec_id": {"type": "string", "minLength": 1},
+    "design_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_docx_sha256_at_freeze": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_docx_sha256_at_submit": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "run_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "role"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "role": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "human_review_required": {"const": true}
+  }
+}

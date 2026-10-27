@@ -1,0 +1,11 @@
+license_record_id,dataset_id,license_code,compatible_open,rights_cleared,attribution_present,source_ref,valid_from,superseded_by,updated_at
+LICREC-04-OLD,DS-04,LIC-LEGACY-04,false,false,false,contracts/archive-04,2025-01-01T00:00:00+01:00,LICREC-04-CUR,2026-01-10T09:00:00+01:00
+LICREC-04-CUR,DS-04,LIC-OPEN-04,true,true,true,contracts/current-04,2026-01-11T00:00:00+01:00,,2026-09-26T09:04:00+02:00
+LICREC-07-OLD,DS-07,LIC-LEGACY-07,false,false,false,contracts/archive-07,2025-01-01T00:00:00+01:00,LICREC-07-CUR,2026-01-10T09:00:00+01:00
+LICREC-07-CUR,DS-07,LIC-OPEN-07,true,true,true,contracts/current-07,2026-01-11T00:00:00+01:00,,2026-09-26T09:07:00+02:00
+LICREC-09-OLD,DS-09,LIC-LEGACY-09,false,false,false,contracts/archive-09,2025-01-01T00:00:00+01:00,LICREC-09-CUR,2026-01-10T09:00:00+01:00
+LICREC-09-CUR,DS-09,LIC-OPEN-09,true,true,true,contracts/current-09,2026-01-11T00:00:00+01:00,,2026-09-26T09:09:00+02:00
+LICREC-11-OLD,DS-11,LIC-LEGACY-11,false,false,false,contracts/archive-11,2025-01-01T00:00:00+01:00,LICREC-11-CUR,2026-01-10T09:00:00+01:00
+LICREC-11-CUR,DS-11,LIC-OPEN-11,true,true,true,contracts/current-11,2026-01-11T00:00:00+01:00,,2026-09-26T09:11:00+02:00
+LICREC-14-OLD,DS-14,LIC-LEGACY-14,false,false,false,contracts/archive-14,2025-01-01T00:00:00+01:00,LICREC-14-CUR,2026-01-10T09:00:00+01:00
+LICREC-14-CUR,DS-14,LIC-OPEN-14,true,true,true,contracts/current-14,2026-01-11T00:00:00+01:00,,2026-09-26T09:14:00+02:00

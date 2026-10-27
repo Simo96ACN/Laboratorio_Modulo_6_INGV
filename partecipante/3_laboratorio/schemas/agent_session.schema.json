@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$id": "urn:ingv:workflow-lab:agent-session:1.0",
+  "title": "Operational session 1.0",
+  "required": [
+    "schema_version",
+    "kind",
+    "run_id",
+    "request_id",
+    "spec_id",
+    "status",
+    "mode",
+    "revision",
+    "snapshot",
+    "mandate_sha256",
+    "budget",
+    "used",
+    "reads",
+    "events",
+    "history",
+    "receipt",
+    "imported_transaction"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "kind": {
+      "const": "agent_session"
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^RUN-[a-f0-9]{32}$"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "spec_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "OPEN",
+        "DRAFT_SUBMITTED",
+        "NEEDS_INPUT",
+        "STOPPED",
+        "FALLBACK"
+      ]
+    },
+    "mode": {
+      "enum": [
+        "agent",
+        "manual"
+      ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "snapshot": {
+      "type": "object"
+    },
+    "mandate_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "budget": {
+      "type": "object",
+      "required": [
+        "Q",
+        "R",
+        "C",
+        "E",
+        "limit"
+      ],
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "used": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reads": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "receipt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "imported_transaction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

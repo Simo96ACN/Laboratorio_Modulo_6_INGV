@@ -1,0 +1,175 @@
+{
+  "run_id": "DEMO-M6-20260918",
+  "mode": "recorded_model_run",
+  "executed_on": "2026-09-18",
+  "interface": "Codex collaboration.followup_task: four real sequential model calls to one persistent subagent, assigned distinct roles",
+  "model": "Inherited session model; exact backend identifier not exposed by tool result",
+  "limits": "Demonstration on a synthetic variant. Roles share the same persistent subagent history: this does not demonstrate context isolation or parallel specialists. The parent routes turns. Handoff is an explicit transfer of the next analysis step, not an SDK handoff primitive. No participant chat UI, student production timing or human learning was tested. This file is a replay, not a new model execution. The synthetic text was supplied directly to the model. The separate MCP trace was recorded after the model calls to verify transport on the same source; no model-controlled MCP call is claimed.",
+  "evidence_ref": "synthetic://meridiano/MER-VARIANT-01",
+  "input": "Il catalogo indica licenza aperta; la nota email segnala un allegato con coordinate non verificate. Occorre distinguere ambito della licenza e contenuto dell’allegato.",
+  "mcp_trace": "mcp_recorded_trace.json",
+  "manager": {
+    "prediction": "Gli specialisti restituiscono fatti, inferenze e lacune; il manager conserva il controllo e ricompone il lavoro.",
+    "delegation_contracts": [
+      {
+        "task_id": "DEMO-MGR-SOURCE-01",
+        "run_id": "DEMO-M6-20260918",
+        "from_agent": "manager",
+        "to_agent": "specialista_fonti",
+        "objective": "Identificare fatti, inferenze e lacune sullo scope della licenza senza inventare l’allegato",
+        "evidence_ref": "synthetic://meridiano/MER-VARIANT-01",
+        "allowed_tools": [
+          "testo fornito"
+        ],
+        "expected_output": [
+          "fatti",
+          "inferenze",
+          "lacune",
+          "verifica_successiva"
+        ],
+        "error_behavior": "NEED_CONTEXT",
+        "return_to": "manager",
+        "active_agent": "manager"
+      },
+      {
+        "task_id": "DEMO-MGR-RISK-01",
+        "run_id": "DEMO-M6-20260918",
+        "from_agent": "manager",
+        "to_agent": "specialista_rischi",
+        "objective": "Distinguere rischi possibili e fatti senza inferire sensibilità certa",
+        "evidence_ref": "synthetic://meridiano/MER-VARIANT-01",
+        "allowed_tools": [
+          "testo fornito"
+        ],
+        "expected_output": [
+          "fatti",
+          "inferenze",
+          "lacune",
+          "verifica_successiva"
+        ],
+        "error_behavior": "NEED_CONTEXT",
+        "return_to": "manager",
+        "active_agent": "manager"
+      }
+    ],
+    "specialist_results": [
+      {
+        "task_id": "DEMO-MGR-SOURCE-01",
+        "run_id": "DEMO-M6-20260918",
+        "evidence_ref": "synthetic://meridiano/MER-VARIANT-01",
+        "status": "NEED_CONTEXT",
+        "fatti": [
+          "Il testo fornito riferisce che il catalogo indica una licenza aperta.",
+          "Il testo fornito riferisce che una nota email segnala un allegato con coordinate non verificate."
+        ],
+        "inferenze": [
+          "L'indicazione del catalogo, da sola, non dimostra che la licenza copra anche l'allegato.",
+          "Lo stato di verifica delle coordinate e l'ambito della licenza sono questioni distinte."
+        ],
+        "lacune": [
+          "Mancano il testo e l'identificativo della licenza.",
+          "Manca l'identificazione precisa dei materiali coperti dalla licenza.",
+          "Mancano l'allegato e informazioni verificabili sulla provenienza delle coordinate."
+        ],
+        "verifica_successiva": "Il manager acquisisca la dichiarazione di licenza e l'elenco dei materiali coperti, quindi verifichi se l'allegato vi rientra. La verifica delle coordinate richiede evidenze separate.",
+        "return_to": "manager",
+        "active_agent": "manager",
+        "human_approval_transferred": false,
+        "effects": []
+      },
+      {
+        "task_id": "DEMO-MGR-RISK-01",
+        "run_id": "DEMO-M6-20260918",
+        "evidence_ref": "synthetic://meridiano/MER-VARIANT-01",
+        "status": "NEED_CONTEXT",
+        "fatti": [
+          "Il testo riferisce che il catalogo indica una licenza aperta.",
+          "Il testo riferisce che una nota email segnala un allegato con coordinate non verificate."
+        ],
+        "inferenze": [
+          "L'utilizzo delle coordinate potrebbe introdurre errori, ma il testo non dimostra che siano errate.",
+          "Applicare la licenza del catalogo all'allegato senza verificarne l'ambito potrebbe comportare un riuso non autorizzato.",
+          "Il testo non permette di stabilire se le coordinate siano sensibili."
+        ],
+        "lacune": [
+          "Mancano contenuto, provenienza e destinazione d'uso delle coordinate.",
+          "Mancano evidenze sulla loro accuratezza.",
+          "Manca una dichiarazione che definisca se la licenza copre l'allegato."
+        ],
+        "verifica_successiva": "Il manager acquisisca informazioni sull'ambito della licenza e sulla provenienza, accuratezza e destinazione d'uso delle coordinate. Valuti l'eventuale sensibilità soltanto sulla base del contenuto e del contesto acquisiti.",
+        "return_to": "manager",
+        "active_agent": "manager",
+        "human_approval_transferred": false,
+        "effects": []
+      }
+    ],
+    "synthesis": "I risultati concordano: il testo documenta due dichiarazioni, non l’estensione della licenza né la natura delle coordinate. Mantengo il controllo come manager, richiedo separatamente prova dello scope e della provenienza e non autorizzo effetti. Il workflow baseline può restare invariato; la variante esplora verifiche ancora da definire.",
+    "control_owner": "manager"
+  },
+  "handoff": {
+    "incomplete_contract": {
+      "task_id": "DEMO-HANDOFF-01",
+      "run_id": "DEMO-M6-20260918",
+      "from_agent": "manager",
+      "next_active_agent": "risk_lead",
+      "stato": "WAITING_CONTEXT",
+      "obiettivo": "Chiarire controlli su allegato con coordinate non verificate",
+      "decisioni_prese": "Nessuna pubblicazione",
+      "questioni_aperte": [
+        "scope licenza",
+        "provenienza coordinate"
+      ],
+      "allowed_tools": [
+        "testo fornito"
+      ],
+      "human_gate": "Obbligatorio, non trasferito",
+      "effects": "NOT_SENT"
+    },
+    "observed_missing_context_response": {
+      "task_id": "DEMO-HANDOFF-01",
+      "run_id": "DEMO-M6-20260918",
+      "active_agent": "risk_lead",
+      "status": "NEED_CONTEXT",
+      "missing_fields": [
+        "evidence_ref"
+      ],
+      "analysis_performed": false,
+      "message_to_requester": "Fornisci evidence_ref, il riferimento alla fonte sintetica associata a questo input. Il contratto di handoff lo richiede prima dell'analisi.",
+      "next_step": "Attendere evidence_ref, quindi validare nuovamente il contratto prima di procedere.",
+      "human_gate": "Autorizzazione umana obbligatoria, non trasferita.",
+      "effects": "NOT_SENT"
+    },
+    "corrected_contract_delta": {
+      "evidence_ref": "synthetic://meridiano/MER-VARIANT-01",
+      "stato": "ANALYSIS_READY"
+    },
+    "active_agent_before": "manager",
+    "active_agent_after": "risk_lead",
+    "next_step_response": {
+      "active_agent": "risk_lead",
+      "status": "WAITING_CONTEXT",
+      "evidence": {
+        "run_id": "DEMO-M6-20260918",
+        "evidence_ref": "synthetic://meridiano/MER-VARIANT-01",
+        "facts": [
+          "Il testo riferisce che il catalogo indica una licenza aperta.",
+          "Il testo riferisce che un'email segnala un allegato con coordinate non verificate.",
+          "La decisione registrata è nessuna pubblicazione."
+        ]
+      },
+      "inference": [
+        "Non è dimostrato che la licenza del catalogo copra l'allegato.",
+        "Coordinate non verificate non significa necessariamente errate o sensibili."
+      ],
+      "next_step": "Acquisire dal richiedente le evidenze mancanti, quindi valutare separatamente ambito della licenza e verificabilità delle coordinate.",
+      "question_to_requester": "Puoi fornire la dichiarazione che identifica i materiali coperti dalla licenza e le informazioni disponibili sulla provenienza e sulle verifiche delle coordinate dell'allegato?",
+      "gate": "L'autorizzazione umana resta obbligatoria e non è trasferita a risk_lead. Nessuna pubblicazione autorizzata.",
+      "effects": "NOT_SENT"
+    }
+  },
+  "human_approval": "NOT_GRANTED",
+  "interpretation": "Ritorno degli specialisti al manager e richiesta diretta del nuovo agente attivo sono comportamenti differenti. Correggere il contratto consente analisi, non inventa le evidenze di dominio ancora mancanti.",
+  "elapsed_seconds": {
+    "model_calls": "Not instrumented; do not infer production or classroom time"
+  }
+}

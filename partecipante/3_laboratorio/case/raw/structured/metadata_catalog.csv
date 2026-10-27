@@ -1,0 +1,6 @@
+dataset_id,title,authors,description,spatial_coverage,temporal_coverage,format,version,updated_at
+DS-04,Rete di monitoraggio sismico - eventi 2025,"Ufficio Sismologia, Centro Ricerche Meridiano",Catalogo sintetico degli eventi sismici rilevati dalla rete regionale nel 2025,Regione Meridiano (bbox 41.0/13.0/43.5/16.5),2025-01-01/2025-12-31,CSV,1.1,2026-09-27T12:00:00+02:00
+DS-07,Serie mareografiche costiere 2020-2025,"Osservatorio Costiero, Centro Ricerche Meridiano",Livelli marini orari sintetici registrati da sette stazioni costiere,Costa Meridiano (7 stazioni),2020-01-01/2025-12-31,CSV,2.1,2026-09-27T12:05:00+02:00
+DS-09,Profili di temperatura del suolo 2024,"Laboratorio Suolo, Centro Ricerche Meridiano",Profili sintetici di temperatura del suolo a diverse profondità,Rete pedologica Meridiano (18 siti),2024-01-01/2024-12-31,CSV,1.0,2026-09-27T12:10:00+02:00
+DS-11,Anagrafica stazioni meteo regionali,"Servizio Meteo, Centro Ricerche Meridiano",Anagrafica sintetica e coordinate delle stazioni meteorologiche,Regione Meridiano,,JSON,1.0,2026-09-27T12:15:00+02:00
+DS-14,Questionari di campo sulla percezione del rischio,"Gruppo Scienze Sociali, Centro Ricerche Meridiano",Questionari sintetici sulla percezione del rischio in comunità costiere,Comunità costiere Meridiano,2023-06-01/2023-09-30,CSV,1.0,2026-09-27T12:20:00+02:00

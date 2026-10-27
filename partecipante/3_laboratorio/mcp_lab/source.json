@@ -1,0 +1,13 @@
+{
+  "MER-VARIANT-01": {
+    "record_id": "MER-VARIANT-01",
+    "dataset_id": "DS-04",
+    "synthetic": true,
+    "variant": "didactic_extension_not_baseline",
+    "evidence": "Il catalogo indica licenza aperta; la nota email segnala un allegato con coordinate non verificate. Occorre distinguere ambito della licenza e contenuto dell'allegato.",
+    "authority": "synthetic teaching source; not a release authorization",
+    "approval": "HUMAN_REQUIRED",
+    "effects": "NOT_SENT",
+    "evidence_ref": "synthetic://meridiano/MER-VARIANT-01"
+  }
+}

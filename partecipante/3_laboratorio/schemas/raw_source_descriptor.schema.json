@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ingv:workflow-lab:raw-source-descriptor:1.0",
+  "title": "Raw Source Descriptor v1.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["family_id", "files"],
+  "properties": {
+    "family_id": {
+      "enum": ["structured_facts", "untrusted_text", "authoritative_registry"]
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "source_id": {"type": "string", "minLength": 1},
+    "fallback_equivalent": {"type": "boolean"}
+  }
+}

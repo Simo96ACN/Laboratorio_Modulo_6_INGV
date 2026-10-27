@@ -1,0 +1,173 @@
+{
+  "run_id": "DEMO-M6-20260918",
+  "transport": "stdio_real_subprocess",
+  "protocol_version": "2025-06-18",
+  "model_used": false,
+  "elapsed_seconds": 0.099,
+  "status": "PASS_LOCAL_MCP",
+  "source_error_behavior": "STOP_NO_EVIDENCE_NO_APPROVAL",
+  "approval": "HUMAN_REQUIRED",
+  "effects": "NOT_SENT",
+  "trace": [
+    {
+      "direction": "client_to_server",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "initialize",
+        "id": 1,
+        "params": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {},
+          "clientInfo": {
+            "name": "meridiano-host",
+            "version": "1.0"
+          }
+        }
+      }
+    },
+    {
+      "direction": "server_to_client",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "protocolVersion": "2025-06-18",
+          "capabilities": {
+            "tools": {
+              "listChanged": false
+            }
+          },
+          "serverInfo": {
+            "name": "meridiano-local-source",
+            "version": "1.0"
+          }
+        }
+      }
+    },
+    {
+      "direction": "client_to_server",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "notifications/initialized"
+      }
+    },
+    {
+      "direction": "client_to_server",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/list",
+        "id": 3
+      }
+    },
+    {
+      "direction": "server_to_client",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "result": {
+          "tools": [
+            {
+              "name": "lookup_synthetic_source",
+              "description": "Read a synthetic Meridiano evidence record, never authorize publication.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "record_id"
+                ],
+                "additionalProperties": false
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "direction": "client_to_server",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "id": 4,
+        "params": {
+          "name": "lookup_synthetic_source",
+          "arguments": {
+            "record_id": "MER-VARIANT-01"
+          }
+        }
+      }
+    },
+    {
+      "direction": "server_to_client",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"record_id\": \"MER-VARIANT-01\", \"dataset_id\": \"DS-04\", \"synthetic\": true, \"variant\": \"didactic_extension_not_baseline\", \"evidence\": \"Il catalogo indica licenza aperta; la nota email segnala un allegato con coordinate non verificate. Occorre distinguere ambito della licenza e contenuto dell'allegato.\", \"authority\": \"synthetic teaching source; not a release authorization\", \"approval\": \"HUMAN_REQUIRED\", \"effects\": \"NOT_SENT\", \"evidence_ref\": \"synthetic://meridiano/MER-VARIANT-01\"}"
+            }
+          ],
+          "isError": false
+        }
+      }
+    },
+    {
+      "direction": "client_to_server",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "id": 5,
+        "params": {
+          "name": "lookup_synthetic_source",
+          "arguments": {
+            "record_id": "MISSING"
+          }
+        }
+      }
+    },
+    {
+      "direction": "server_to_client",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 5,
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"code\": \"SOURCE_NOT_FOUND\", \"record_id\": \"MISSING\"}"
+            }
+          ],
+          "isError": true
+        }
+      }
+    },
+    {
+      "direction": "client_to_server",
+      "message": {
+        "jsonrpc": "2.0",
+        "method": "tools/call",
+        "id": 6,
+        "params": {
+          "name": "publish",
+          "arguments": {}
+        }
+      }
+    },
+    {
+      "direction": "server_to_client",
+      "message": {
+        "jsonrpc": "2.0",
+        "id": 6,
+        "error": {
+          "code": -32602,
+          "message": "Unknown tool"
+        }
+      }
+    }
+  ]
+}
